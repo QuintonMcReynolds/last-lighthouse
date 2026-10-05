@@ -36,8 +36,7 @@ def pull_supabase(page: int = 1000) -> list[dict]:
     rows, start = [], 0
     while True:
         r = requests.get(url, headers={**headers, "Range": f"{start}-{start + page - 1}"},
-                         params={"select": "*", "order": "id", "game": "eq.last_lighthouse",
-                                 "is_bot": "eq.false"}, timeout=60)
+                         params={"select": "*", "order": "id", "is_bot": "eq.false"}, timeout=60)
         r.raise_for_status()
         rows += r.json()
         if len(r.json()) < page:

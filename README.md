@@ -41,9 +41,8 @@ confidence intervals.
 - **Telemetry** (`game/telemetry.js`): anonymous id, batched uploads with an offline
   queue, and a one-tap opt-out on the title screen. Events: `game_start`, `scene_enter`,
   `puzzle_solved`, `hint_used`, `game_complete`, and session start and end.
-- **Database**: the same Supabase table as Shadow Isle, with rows tagged
-  `game = 'last_lighthouse'`. Row-level security lets the public key insert rows but not
-  read them. Run `supabase/setup.sql` once.
+- **Database**: its own Supabase project. Row-level security lets the public key insert
+  rows but not read them. Run `supabase/setup.sql` once in the SQL Editor.
 - **Tests** (`make test`, headless Chrome):
   - A full walkthrough, driven by the same goal list the hint button uses, so every hint
     is checked against a working solution.
